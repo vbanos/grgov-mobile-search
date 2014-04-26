@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}Απόφαση {% endblock %}
+{% block body %}
+
+<header class="bar bar-nav">
+    <a class="btn btn-link btn-nav pull-left" href="javascript:history.go(-1)"><span class="icon icon-back"></span></a>
+    <h1 class="title">Αναλυτικά</h1>
+</header>
+
+<div class="content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <p>ΘΕΜΑ</p>
+                {{ decision['Decision']['subject'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΑΔΑ</p>
+                {{ decision['Decision']['ada'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΟΡΓΑΝΙΣΜΟΣ</p>
+                {{ decision['Organization']['name'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΤΥΠΟΣ</p>
+                {{ decision['Type']['name'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΗΜΕΡΟΜΗΝΙΑ</p>
+                {{ decision['Decision']['date']|strftime }}
+            </li>
+        </ul>
+    </div>
+    <div class="content-padded">
+        <a href="{{ decision['Decision']['url'] }}" class="btn btn-primary btn-block">Απόφαση στη Δι@ύγεια <span class="icon icon-right"></span></a>
+        <a href="http://static.diavgeia.gov.gr/doc/{{ decision['Decision']['ada'] }}" class="btn btn-positive btn-block">Απευθείας PDF από τη Δι@ύγεια <span class="icon icon-right"></span></a>
+        {% if decision['Decision']['cachePdf'] == "YES" %}
+            <a href="http://yperdiavgeia.gr/decisions/downloadPdf/{{ decision['Decision']['id'] }}" class="btn btn-primary btn-outlined btn-block">Aποθηκευμένο PDF στην ΥπερΔι@ύγεια <span class="icon icon-right"></span></a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

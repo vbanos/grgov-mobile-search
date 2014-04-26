@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}ΚΩΔΙΚΟΣ {{ procurement['Procurement']['identifier'] }} {% endblock %}
+{% block body %}
+
+<header class="bar bar-nav">
+    <a class="btn btn-link btn-nav pull-left" href="javascript:history.go(-1)"><span class="icon icon-back"></span></a>
+    <h1 class="title">Αναλυτικά</h1>
+</header>
+
+<div class="content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <p>ΘΕΜΑ</p>
+                {{ procurement['Procurement']['subject'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΚΩΔΙΚΟΣ</p>
+                {{ procurement['Procurement']['identifier'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΟΡΓΑΝΙΣΜΟΣ</p>
+                {{ procurement['Organization']['name'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΤΥΠΟΣ</p>
+                {% if procurement['Procurement']['type'] == "tender" %}
+                    Προκήρυξη
+                {% else %}
+                    Σύμβαση
+                {% endif %}
+            </li>
+            <li class="table-view-cell">
+                <p>ΗΜΕΡΟΜΗΝΙΑ</p>
+                {{ procurement['Procurement']['date']|strftime }}
+            </li>
+        </ul>
+    </div>
+    <div class="content-padded">
+        <a href="http://yperdiavgeia.gr/procurements/downloadPdf/{{ procurement['Procurement']['id'] }}" class="btn btn-primary btn-block">Aποθηκευμένο PDF στην ΥπερΔι@ύγεια <span class="icon icon-right"></span></a>
+    </div>
+    {% include 'footer.html' %}
+</div>
+{% endblock %}

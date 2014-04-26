@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %} Αναζήτηση στα Δημόσια Δεδομένα {% endblock %}
+{% block body %}
+
+    <!-- Make sure all your bars are the first things in your <body> -->
+    <header class="bar bar-nav">
+        <a class="btn btn-link btn-nav pull-left" href="/"><span class="icon icon-home"></span></a>
+        <h1 class="title">Αναζήτηση στα Δημόσια Δεδομένα</h1>
+    </header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+        <div class="content-padded">
+            <h3>Γενικά</h3>
+            <p>Η εφαρμογή δίνει τη δυνατότητα <strong>αναζήτησης πλήρους κειμένου</strong> σε πολύ σημαντικές πηγές ανοικτών δεδομένων της Ελλάδος
+                από <strong>κινητά τηλέφωνα (smartphones) και tablets</strong> που χρησιμοποιούν λειτουργικό σύστημα Android και iOS.</p>
+
+
+            <h3>Πηγές δεδομένων</h3>
+            <p>
+            <ol>
+                <li>Όλα τα έγγραφα που αναρτώνται στο πρόγραμμα Δι@ύγεια <a href="http://diavgeia.gov.gr">diavgeia.gov.gr</a>.
+                    Η ανάκτηση γίνεται από την ΥπερΔιαύγεια μέσω του API ανοικτών δεδομένων του προγράμματος Διαύγεια
+                    <a href="http://opendata.diavgeia.gov.gr/">http://opendata.diavgeia.gov.gr/</a>.
+                </li>
+                <li>Το σύνολο της Ελληνικής Νομοθεσίας που δημοσιεύεται από Εθνικό Τυπογραφείο <a href="http://www.et.gr/">http://www.et.gr/</a>.
+                    Η ανάκτηση των Φύλλων Εφημερίδας της Κυβερνήσεως (ΦΕΚ) γίνεται από την ΥπερΔιαύγεια με web scraping σε συνεργασία με τους
+                    Μιχάλη Μοάτσο και Στέφανο Καλαντζή.
+                </li>
+                <li>Όλες τις προκηρύξεις και τις προμήθειες που δημοσιεύονται στο Κεντρικό Ηλεκτρονικό Μητρώο Δημοσίων Συμβάσεων (ΚΗΜΔΗΣ)
+                    <a href="http://www.eprocurement.gov.gr/">http://www.eprocurement.gov.gr/</a>. Η ανάκτηση γίνεται από την ΥπερΔιαύγεια
+                    και το εργαλείο DEiXTo με web scraping. Για περισσότερες πληροφορίες: <a href="http://deixto.com/building-an-rss-feed-for-the-greek-e-procurement-platform/">Building an RSS feed for the Greek e-procurement platform</a>
+                    </li>
+            </ol>
+
+            <h3>Τεχνολογία</h3>
+            <p>Για την υλοποίηση της εφαρμογής χρησιμοποιούνται οι εξής τεχνολογίες:</p>
+            <ul>
+                <li>Python</li>
+                <li>Nginx</li>
+                <li>HTML5</li>
+                <li>OpenSearch API</li>
+                <li>Javascript</li>
+                <li>Ratchet 2.0</li>
+                <li><a href="http://yperdiavgeia.gr/">ΥπερΔιαύγεια</a>: H εφαρμογή χρησιμοποιεί τα ανοικτά δημόσια δεδομένα κατόπιν επεξεργασίας από την <a href="http://yperdiavgeia.gr/">ΥπερΔιαύγεια</a>.</li>
+            </ul>
+            <p>Ο πλήρης κώδικας της εφαρμογής διατίθεται ελεύθερα σε κάθε ενδιαφερόμενο από το github TODO ADD URL.</p>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block title %} Αναζήτηση στα Δημόσια Δεδομένα {% endblock %}
+{% block body %}
+    <header class="bar bar-nav">
+        <a class="btn btn-link btn-nav pull-left" href="/"><span class="icon icon-home"></span></a>
+        <h1 class="title">Αναζήτηση στα Δημόσια Δεδομένα</h1>
+    </header>
+
+    <div class="content">
+        <div class="content-padded">
+            <h5>Αναζήτηση σε ολόκληρη την Ελληνική Νομοθεσία που δημοσιεύεται στο Εθνικό Τυπογραφείο www.et.gr (Φ.Ε.Κ.).</h5>
+            <form action="/laws-search" method="get">
+                <input name="search" type="hidden" value="1" />
+                <input name="query" type="search" placeholder="Λέξη κλειδί" required pattern=".{3,50}" />
+                <button class="btn btn-positive btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
+            </form>
+        </div>
+        {% include 'footer.html' %}
+    </div>
+{% endblock %}

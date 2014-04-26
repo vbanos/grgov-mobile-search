@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %}Αναζήτηση στη Διαύγεια για "{{ query }}" {% endblock %}
+{% block body %}
+
+<header class="bar bar-nav">
+    <a class="btn btn-link btn-nav pull-left" href="/"><span class="icon icon-home"></span></a>
+    <h1 class="title">{{ query }} ({{ total|human_number }})</h1>
+</header>
+
+<div class="content">
+    {% if results %}
+        <ul class="table-view" id="results-container">
+            {% for item in results %}
+
+                <li class="table-view-cell">
+                    <a class="navigate-right" href="/decision/{{ item.id }}">
+                        {{ item.title }}
+                        <p>{{ item.summary }} / {{ item.updated }}</p>
+                        {% if item.snippet %}
+                            <p><i>{{ item.snippet|safe }}</i></p>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        {% if total > 20 %}
+            <div class="content-padded">
+                <button class="btn btn-positive btn-block" id="more-results"><span class="icon icon-down-nav"></span> Περισσότερα αποτελέσματα</button>
+            </div>
+        {% endif %}
+
+        <script>
+            var total = {{ total }};
+            var current_page = 1;
+            var per_page = 20;
+            $("#more-results").click(function() {
+                current_page++;
+                $.ajax({
+                    url: "/diavgeia-search-ajax?query=" + encodeURI('{{ query }}') + "&page=" + current_page,
+                    type: "GET",
+                    success: function(data) {
+                        $("#results-container").append(data);
+                        if(current_page * per_page >= total) {
+                            $("#more-results").hide();
+                        }
+                    }
+                });
+            });
+        </script>
+
+    {% else %}
+        <p class="content-padded text-danger text-center">Δεν βρέθηκαν αποτελέσματα.</p>
+    {% endif %}
+
+    {% include 'footer.html' %}
+</div>
+
+{% endblock %}

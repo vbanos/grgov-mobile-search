@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}{{ law['Law']['subject'] }} {% endblock %}
+{% block body %}
+
+<header class="bar bar-nav">
+    <a class="btn btn-link btn-nav pull-left" href="javascript:history.go(-1)"><span class="icon icon-back"></span></a>
+    <h1 class="title">Αναλυτικά</h1>
+</header>
+
+<div class="content">
+    <div class="card">
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <p>ΦΕΚ</p>
+                {{ law['Law']['subject'] }}
+            </li>
+            <li class="table-view-cell">
+                <p>ΕΤΟΣ</p>
+                {{ law['Law']['year'] }}
+            </li>
+        </ul>
+    </div>
+    <div class="content-padded">
+        <a href="{{ law['Law']['url'] }}" class="btn btn-primary btn-block">PDF από το Εθνικό Τυπογραφείο<span class="icon icon-right"></span></a>
+    </div>
+    {% include 'footer.html' %}
+</div>
+{% endblock %}

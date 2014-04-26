@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %} Αναζήτηση στα Δημόσια Δεδομένα {% endblock %}
+{% block body %}
+    <header class="bar bar-nav">
+      <h1 class="title">Αναζήτηση στα Δημόσια Δεδομένα</h1>
+    </header>
+
+    <div class="content">
+        <div class="content-padded">
+            <p>Εφαρμογή για συσκευές <strong>Android &amp; iOS</strong> που επιτρέπει την
+                αναζήτηση στο <strong><u>πλήρες κείμενο</u></strong> όλων των δημοσίων εγγράφων από τις εξής πηγές:</p>
+        </div>
+        <ul class="table-view">
+            <li class="table-view-cell diavgeia">
+                <a class="navigate-right" href="/diavgeia-search">
+                    <span class="badge">{{ statistics.total|human_number }} αποφάσεις</span>
+                    Αποφάσεις όλων των φορέων<br /> του δημόσιου τομέα
+                    <p>Πρόγραμμα Δι@ύγεια</p>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="navigate-right" href="/procurements-search">
+                    <span class="badge">{{ statistics.total_procurements|human_number }} έγγραφα</span>
+                    Προκηρύξεις και Συμβάσεις
+                    <p>Κεντρικό Ηλεκτρονικό Μητρώο<br /> Δημοσίων Συμβάσεων (ΚΗΜΔΗΣ)</p>
+                </a>
+            </li>
+            <li class="table-view-cell">
+                <a class="navigate-right" href="/laws-search">
+                    <span class="badge">{{ statistics.total_laws|human_number }} Φ.Ε.Κ.</span>
+                    Φύλλα Εφημερίδας της Κυβερνήσεως (Φ.Ε.Κ.)
+                    <p>Εθνικό Τυπογραφείο</p>
+                </a>
+            </li>
+        </ul>
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <a class="navigate-right" href="/about">
+                    Πληροφορίες σχετικά με την εφαρμογή
+                </a>
+            </li>
+        </ul>
+        {% include 'footer.html' %}
+    </div>
+{% endblock %}
