@@ -1,18 +1,19 @@
 {% extends "layout.html" %}
 {% block title %} Αναζήτηση στα Δημόσια Δεδομένα {% endblock %}
 {% block body %}
-    <header class="bar bar-nav">
+    <header class="bar bar-nav headerbg">
         <a class="btn btn-link btn-nav pull-left" href="/"><span class="icon icon-home"></span></a>
-        <h1 class="title">Αναζήτηση στα Δημόσια Δεδομένα</h1>
+        <h1 class="title"><strong>GRGOV</strong> Mobile Search</h1>
     </header>
 
     <div class="content">
         <div class="content-padded">
+            <h3>Φύλλα Εφημερίδας της Κυβερνήσεως</h3>
             <h5>Αναζήτηση σε ολόκληρη την Ελληνική Νομοθεσία που δημοσιεύεται στο Εθνικό Τυπογραφείο www.et.gr (Φ.Ε.Κ.).</h5>
             <form action="/laws-search" method="get">
                 <input name="search" type="hidden" value="1" />
                 <input name="query" type="search" placeholder="Λέξη κλειδί" required pattern=".{3,50}" />
-                <button class="btn btn-positive btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
+                <button class="btn btn-primary btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
             </form>
         </div>
         {% include 'footer.html' %}

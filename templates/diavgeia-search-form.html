@@ -3,19 +3,20 @@
 {% block body %}
 
     <!-- Make sure all your bars are the first things in your <body> -->
-    <header class="bar bar-nav">
+    <header class="bar bar-nav headerbg">
         <a class="btn btn-link btn-nav pull-left" href="/"><span class="icon icon-home"></span></a>
-        <h1 class="title">Αναζήτηση στα Δημόσια Δεδομένα</h1>
+        <h1 class="title"><strong>GRGOV</strong> Mobile Search</h1>
     </header>
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
         <div class="content-padded">
+            <h3>Πρόγραμμα Δι@ύγεια</h3>
             <h5>Αναζήτηση σε όλες τις αποφάσεις του δημόσιου τομέα που αναρτώνται στο πρόγραμμα Δι@ύγεια.</h5>
             <form action="/diavgeia-search" method="get">
                 <input name="search" type="hidden" value="1" />
                 <input name="query" type="search" placeholder="Λέξη κλειδί" required pattern=".{3,50}" />
-                <button class="btn btn-positive btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
+                <button class="btn btn-primary btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
             </form>
         </div>
         {% include 'footer.html' %}
