@@ -16,6 +16,9 @@
                     <a class="navigate-right" href="/law/{{ item.id }}">
                         {{ item.title }}
                         <p>{{ item.summary|safe }} / {{ item.date }}</p>
+                        {% if item.snippet %}
+                            <p><i>{{ item.snippet|safe|replace("<b>", "")|replace("</b>", "") }}</i></p>
+                        {% endif %}
                     </a>
                 </li>
             {% endfor %}

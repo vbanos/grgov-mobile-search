@@ -5,7 +5,7 @@
                     {{ item.title }}
                     <p>{{ item.summary }} / {{ item.updated }}</p>
                     {% if item.snippet %}
-                        <p><i>{{ item.snippet|safe }}</i></p>
+                        <p><i>{{ item.snippet|safe|replace("<b>", "")|replace("</b>", "") }}</i></p>
                     {% endif %}
                 </a>
             </li>
