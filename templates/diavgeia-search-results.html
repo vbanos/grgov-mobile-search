@@ -59,15 +59,14 @@
         </header>
         <ul class="table-view">
             <li class="table-view-cell">
-            <form action="/diavgeia-search" method="get">
-            <input name="search" type="hidden" value="1" />
-            <input name="query" type="search" placeholder="Λέξη κλειδί" required pattern=".{3,50}" value="{{ query }}" />
-            <button class="btn btn-primary btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
-            </form>
+                <form action="/diavgeia-search" method="get">
+                    <input name="search" type="hidden" value="1" />
+                    <input name="query" type="search" placeholder="Λέξη κλειδί" required pattern=".{3,50}" value="{{ query }}" />
+                    <button class="btn btn-primary btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
+                </form>
             </li>
         </ul>
     </div>
-
 
     {% include 'footer.html' %}
 </div>

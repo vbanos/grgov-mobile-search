@@ -4,7 +4,7 @@
 
 <header class="bar bar-nav headerbg">
     <a class="btn btn-link btn-nav pull-left" href="/"><span class="icon icon-home"></span></a>
-    <h1 class="title">{{ query }} ({{ total|human_number }})</h1>
+    <a href="#popoverForm"><h1 class="title">{{ query }} ({{ total|human_number }}) <span class="icon icon-caret"></span></h1></a>
 </header>
 
 <div class="content">
@@ -52,6 +52,21 @@
     {% else %}
         <p class="content-padded text-danger text-center">Δεν βρέθηκαν αποτελέσματα.</p>
     {% endif %}
+
+    <div id="popoverForm" class="popover">
+        <header class="bar bar-nav">
+            <h1 class="title">Νέα αναζήτηση</h1>
+        </header>
+        <ul class="table-view">
+            <li class="table-view-cell">
+                <form action="/procurements-search" method="get">
+                    <input name="search" type="hidden" value="1" />
+                    <input name="query" type="search" placeholder="Λέξη κλειδί" required pattern=".{3,50}" value="{{ query }}" />
+                    <button class="btn btn-primary btn-block"><span class="icon icon-search"></span> Αναζήτηση</button>
+                </form>
+            </li>
+        </ul>
+    </div>
 
     {% include 'footer.html' %}
 </div>
